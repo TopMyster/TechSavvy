@@ -1,6 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from "./supabaseClient";
+import { Button } from "@/components/ui/button"
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 
 export default function Post() {
     const [headline, setHeadline] = useState("");
@@ -43,24 +55,71 @@ export default function Post() {
     }
 
     return (
-        <div className="post-container">
-            <h1>Post a New Review</h1>
-            {error && <p className="error-message" style={{ color: 'red' }}>{error}</p>}
-            <form onSubmit={handleSubmit} className="post-form">
-                <div className="form-group">
-                    <input type="text" value={headline} onChange={(e) => setHeadline(e.target.value)} placeholder="Headline" />
-                </div>
-                <div className="form-group">
-                    <input type="number" value={rating} onChange={(e) => setRating(e.target.value)} placeholder="Rating (1-10)" min="1" max="10" />
-                </div>
-                <div className="form-group">
-                    <input type="text" value={product} onChange={(e) => setProduct(e.target.value)} placeholder="Product Name" />
-                </div>
-                <div className="form-group">
-                    <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Review Content" rows="5" />
-                </div>
-                <button type="submit">Post Review</button>
-            </form>
+        <div className="flex justify-center items-center min-h-screen p-4">
+            <Card className="w-full max-w-lg">
+                <CardHeader>
+                    <CardTitle>Post a New Review</CardTitle>
+                    <CardDescription>
+                        Share your thoughts on a product
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form id="post-form" onSubmit={handleSubmit}>
+                        <div className="grid w-full items-center gap-4">
+                            {error && <p className="text-red-500 text-sm">{error}</p>}
+
+                            <div className="flex flex-col space-y-1.5">
+                                <Label htmlFor="headline">Headline</Label>
+                                <Input
+                                    id="headline"
+                                    placeholder="Enter a headline"
+                                    value={headline}
+                                    onChange={(e) => setHeadline(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="flex flex-col space-y-1.5">
+                                <Label htmlFor="rating">Rating (1-10)</Label>
+                                <Input
+                                    id="rating"
+                                    type="number"
+                                    placeholder="Rate from 1 to 10"
+                                    min="1"
+                                    max="10"
+                                    value={rating}
+                                    onChange={(e) => setRating(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="flex flex-col space-y-1.5">
+                                <Label htmlFor="product">Product Name</Label>
+                                <Input
+                                    id="product"
+                                    placeholder="Name of the product"
+                                    value={product}
+                                    onChange={(e) => setProduct(e.target.value)}
+                                />
+                            </div>
+
+                            <div className="flex flex-col space-y-1.5">
+                                <Label htmlFor="content">Review Content</Label>
+                                <Textarea
+                                    id="content"
+                                    placeholder="Write your review here..."
+                                    value={content}
+                                    onChange={(e) => setContent(e.target.value)}
+                                    rows={5}
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </CardContent>
+                <CardFooter>
+                    <Button type="submit" form="post-form" className="w-full">
+                        Post Review
+                    </Button>
+                </CardFooter>
+            </Card>
         </div>
     )
 }
