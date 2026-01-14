@@ -1,15 +1,15 @@
 export default function Cards({ headline, rating, stars, createdTime, product, content, id, onClick }) {
     return (
         <div className="card" onClick={onClick}>
-            <div id="card-header">
-                <h1>{headline}</h1>
-                <p className="rating">{rating}/10</p>
-                <p className="product">{product}</p>
-                <p className="stars">{stars}</p>
+            <h2>{headline}</h2>
+            <div className="card-middle">
+                <h4 className="product">{product}</h4>
+                <h4 className="rating">{rating}/10</h4>
+                <h4 className="stars">{stars}</h4>
             </div>
-            <div id="card-body">
-                <p className="content">{content}</p>
-                <p className="createdTime">{createdTime}</p>
+            <div className="card-body">
+                <h4 className="content">{content}</h4>
+                <h4 className="createdTime">{createdTime}</h4>
             </div>
         </div>
     )
