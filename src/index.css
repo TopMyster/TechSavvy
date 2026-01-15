@@ -140,7 +140,6 @@
   align-items: center;
   display: flex;
   margin: 15px auto;
-  width: 50%;
   animation: jump 0.3s ease-in-out;
 }
 
