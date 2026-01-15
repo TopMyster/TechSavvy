@@ -122,3 +122,50 @@
     @apply bg-background text-foreground;
   }
 }
+
+.main-nav {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 10px;
+}
+
+.card {
+  margin: 15px 15px;
+  animation: jump 0.3s ease-in-out;
+}
+
+.post {
+  animation: appear 0.5s ease-in-out;
+}
+
+.page {
+  margin: 15px 10px;
+  animation: appear 0.2s ease-in-out;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes jump {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
