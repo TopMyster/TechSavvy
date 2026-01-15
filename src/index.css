@@ -135,6 +135,15 @@
   animation: jump 0.3s ease-in-out;
 }
 
+.searchbar {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 15px auto;
+  width: 50%;
+  animation: jump 0.3s ease-in-out;
+}
+
 .post {
   animation: appear 0.5s ease-in-out;
 }

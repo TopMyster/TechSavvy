@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import supabase from "./supabaseClient";
 import Cards from "./componenets/Cards";
 import { useNavigate } from "react-router-dom";
+import Searchbar from "./componenets/Searchbar";
 
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
 
     return (
         <>
+            <Searchbar />
             {error && <p>{error}</p>}
             <div className="homepage">
                 {reviews && reviews.map(review => (
