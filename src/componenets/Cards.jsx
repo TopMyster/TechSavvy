@@ -47,7 +47,7 @@ export default function Card({
     return (
         <div className="card">
             <article
-                className="group cursor-pointer rounded-xl border bg-card p-4 shadow-sm transition hover:border-primary/60 hover:shadow-md"
+                className="group cursor-pointer rounded-xl border bg-card p-4 shadow-sm transition hover:border-[#1DA1F2] hover:shadow-md"
                 onClick={onClick}
             >
                 <header className="flex items-start justify-between gap-3">
@@ -74,15 +74,18 @@ export default function Card({
                 <footer className="mt-4 flex items-center gap-4 text-xs text-muted-foreground">
                     <button
                         onClick={handleLike}
-                        className={`inline-flex items-center gap-1 rounded-full px-2 py-1 transition-colors ${hasLiked ? "bg-primary/10 text-primary" : "hover:bg-muted"}`}
+                        className={`inline-flex items-center gap-1 rounded-full px-2 py-1 transition-colors ${hasLiked ? "bg-[#1DA1F2] text-secondary" : "text-[#1DA1F2] hover:bg-muted"}`}
                     >
                         <ThumbsUp className="h-3 w-3" />
                         <span>{hasLiked ? "Liked" : "Like"}</span>
                     </button>
-                    <button className="inline-flex items-center gap-1 rounded-full px-2 py-1 hover:bg-muted">
-                        💬 <span>Comment</span>
-                    </button>
-                    <button className="inline-flex items-center gap-1 rounded-full px-2 py-1 hover:bg-muted">
+                    <button className="inline-flex items-center gap-1 rounded-full px-2 py-1 hover:bg-muted" onClick={() => {
+                        navigator.share({
+                            title: headline,
+                            text: `Check out this TechSavvy review: ${headline}`,
+                            url: `/page/${id}`,
+                        })
+                    }}>
                         ⤴ <span>Share</span>
                     </button>
                 </footer>

@@ -136,11 +136,8 @@
 }
 
 .searchbar {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  margin: 15px auto;
-  animation: jump 0.3s ease-in-out;
+  margin: 10px 15px;
+  animation: jump 0.5s ease-in-out;
 }
 
 .post {

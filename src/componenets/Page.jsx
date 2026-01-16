@@ -99,16 +99,19 @@ export default function Page() {
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                             <button
                                 onClick={star}
-                                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors ${stared ? "bg-primary/10 text-primary" : "hover:bg-muted"}`}
+                                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 transition-colors ${stared ? "bg-[#1DA1F2] text-secondary" : "text-[#1DA1F2] hover:bg-muted"}`}
                                 disabled={stared}
                             >
                                 <ThumbsUp className="h-4 w-4" />
                                 <span>{stared ? "Liked" : "Like"}</span>
                             </button>
-                            <button className="inline-flex items-center gap-2 rounded-full px-4 py-2 hover:bg-muted">
-                                💬 <span>Comment</span>
-                            </button>
-                            <button className="inline-flex items-center gap-2 rounded-full px-4 py-2 hover:bg-muted">
+                            <button className="inline-flex items-center gap-2 rounded-full px-4 py-2 hover:bg-muted" onClick={(e) => {
+                                navigator.share({
+                                    title: review.headline,
+                                    text: `Check out this TechSavvy review: ${review.headline}`,
+                                    url: `/page/${review.id}`,
+                                })
+                            }}>
                                 ⤴ <span>Share</span>
                             </button>
                         </div>

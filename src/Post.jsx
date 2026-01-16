@@ -116,7 +116,7 @@ export default function Post() {
                         </form>
                     </CardContent>
                     <CardFooter>
-                        <Button type="submit" form="post-form" className="w-full">
+                        <Button type="submit" form="post-form" className="w-full bg-[#1DA1F2] hover:bg-[#1DA1F2]/80">
                             Post Review
                         </Button>
                     </CardFooter>
